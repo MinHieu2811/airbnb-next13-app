@@ -19,7 +19,7 @@ import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
 import { FaSkiing } from "react-icons/fa";
 
-const categories = [
+export const categories = [
   {
     label: "Beach",
     icon: TbBeach,
