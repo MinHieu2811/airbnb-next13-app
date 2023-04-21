@@ -37,5 +37,5 @@ const Map: React.FC<MapProps> = ({ center }) => {
     </MapContainer>
   );
 };
-// 4:06:40
+
 export default Map;
