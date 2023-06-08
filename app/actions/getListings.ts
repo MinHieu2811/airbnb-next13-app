@@ -12,7 +12,7 @@ export interface IListingParams {
   category?: string;
 }
 
-export default async function getListings(params: IListingParams) {
+export default async function getListings(params: IListingParams): Promise<SafeListing[]> {
   try {
     const {
       userId,
@@ -83,10 +83,10 @@ export default async function getListings(params: IListingParams) {
       },
     });
 
-    const safeListing = listing?.map((list) => ({
+    const safeListing = listing?.map((list: any) => ({
       ...list,
       createdAt: list?.createdAt?.toISOString(),
-    }));
+    })) as SafeListing[]
 
     return safeListing;
   } catch (error: any) {

@@ -14,32 +14,35 @@ interface HomeProps {
 const Home = async ({
   searchParams
 }: HomeProps) => {
-  const listing = await getListings(searchParams);
-  const currentUser = await getCurrentUser();
+  // const listing = await getListings(searchParams);
+  // const currentUser = await getCurrentUser();
 
-  if (listing?.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
-    );
-  }
+  // console.log(listing);
+
+  // if (!listing?.length) {
+  //   return (
+  //     <ClientOnly>
+  //       <EmptyState showReset />
+  //     </ClientOnly>
+  //   );
+  // }
   return (
-    <ClientOnly>
-      <Container>
-        <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          {listing?.map((listing) => {
-            return (
-              <ListingCard
-                data={listing}
-                currentUser={currentUser}
-                key={`listing-${listing?.id}`}
-              />
-            );
-          })}
-        </div>
-      </Container>
-    </ClientOnly>
+    // <ClientOnly>
+    //   <Container>
+    //     <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+    //       {listing?.map((listing: any) => {
+    //         return (
+    //           <ListingCard
+    //             data={listing}
+    //             currentUser={currentUser}
+    //             key={`listing-${listing?.id}`}
+    //           />
+    //         );
+    //       })}
+    //     </div>
+    //   </Container>
+    // </ClientOnly>
+    <p>Hello</p>
   );
 }
 

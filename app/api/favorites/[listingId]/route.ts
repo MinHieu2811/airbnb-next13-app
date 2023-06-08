@@ -24,7 +24,7 @@ export async function POST(request: Request, { params }: { params: IParams }) {
 
   favoriteId.push(listingId);
 
-  const user = await prisma.user.update({
+  const user = await prisma?.user?.update({
     where: {
       id: currentUser?.id,
     },
@@ -56,7 +56,7 @@ export async function DELETE(
 
   favoritesId = favoritesId.filter((item) => item !== listingId);
 
-  const user = await prisma.user.update({
+  const user = await prisma?.user?.update({
     where: {
       id: currentUser?.id,
     },

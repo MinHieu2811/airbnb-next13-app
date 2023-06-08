@@ -1,4 +1,5 @@
 import prisma from '@/app/libs/prismadb'
+import { SafeListing } from '../types'
 
 interface IParams {
   listingId?: string
@@ -6,7 +7,7 @@ interface IParams {
 
 export default async function getListingById(
   params: IParams
-) {
+): Promise<any | null> {
   try {
     const {listingId} = params
 

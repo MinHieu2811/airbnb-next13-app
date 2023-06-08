@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import { SafeReservation } from "../types";
 
 interface IParams {
   listingId?: string;
@@ -6,7 +7,7 @@ interface IParams {
   authorId?: string;
 }
 
-export default async function getReservations(params: IParams) {
+export default async function getReservations(params: IParams): Promise<SafeReservation[]> {
   try {
     const { listingId, userId, authorId } = params;
 
@@ -34,7 +35,7 @@ export default async function getReservations(params: IParams) {
       },
     });
 
-    const safeReservations = reservations?.map((reservation) => ({
+    const safeReservations = reservations?.map((reservation: any) => ({
       ...reservation,
       createdAt: reservation?.createdAt?.toISOString(),
       startDate: reservation?.startDate?.toISOString(),
@@ -43,7 +44,7 @@ export default async function getReservations(params: IParams) {
         ...reservation?.listing,
         createdAt: reservation?.listing?.createdAt?.toISOString(),
       },
-    }));
+    })) as SafeReservation[]
 
     return safeReservations;
   } catch (error: any) {

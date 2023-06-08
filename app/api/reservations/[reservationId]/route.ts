@@ -23,7 +23,7 @@ export async function DELETE(
     throw new Error("Invalid ID");
   }
 
-  const reservation = await prisma.reservation.deleteMany({
+  const reservation = await prisma?.reservation?.deleteMany({
     where: {
       id: reservationId,
       OR: [
